@@ -1,0 +1,69 @@
+/* css/style.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+}
+
+.container, .login-container, .main-content {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn, button {
+  padding: 10px 20px;
+  background: #047857;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.navbar {
+  background: #047857;
+  padding: 10px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+input[type="text"], input[type="password"], input[type="file"] {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 250px;
+}
+
+/* js/script.js */
+function loginUser(event) {
+  event.preventDefault();
+  window.location.href = "dashboard.html";
+}
+
+function uploadFile() {
+  const input = document.getElementById('fileInput');
+  const fileList = document.getElementById('fileList');
+  const fileName = input.files[0]?.name;
+  if (fileName) {
+    const li = document.createElement('li');
+    li.textContent = fileName + ' (uploaded)';
+    fileList.appendChild(li);
+    input.value = '';
+  } else {
+    alert('Please select a file to upload.');
+  }
+}
